@@ -75,7 +75,7 @@ const skillIcons = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-20 sm:py-24">
+    <section id="skills" className="relative section-y">
       <div className="container-shell section-pad">
         <ScrollReveal>
           <SectionHeading
@@ -86,26 +86,26 @@ export default function Skills() {
           />
         </ScrollReveal>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3">
           {skillCategories.map((category, index) => (
             <ScrollReveal key={category.id} delay={index * 0.04}>
-              <article className="glass group h-full rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-glow-sm">
-                <div className="mb-5 flex items-center justify-between">
-                  <h3 className="font-display text-lg font-semibold text-white">
+              <article className="glass group h-full rounded-2xl p-4 transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-glow-sm sm:p-6">
+                <div className="mb-4 flex items-center justify-between gap-3 sm:mb-5">
+                  <h3 className="min-w-0 font-display text-base font-semibold text-white sm:text-lg">
                     {category.title}
                   </h3>
-                  <span className="rounded-full bg-accent/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent">
+                  <span className="shrink-0 rounded-full bg-accent/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent">
                     {category.skills.length}
                   </span>
                 </div>
-                <ul className="flex flex-wrap gap-2.5">
+                <ul className="flex flex-wrap gap-2 sm:gap-2.5">
                   {category.skills.map((skill) => {
                     const meta = skillIcons[skill];
                     const Icon = meta?.Icon;
                     return (
                       <li
                         key={skill}
-                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-navy-950/60 px-3 py-2 text-xs text-gray-200 transition hover:border-accent/30"
+                        className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-white/10 bg-navy-950/60 px-2.5 py-2 text-[11px] text-gray-200 transition hover:border-accent/30 sm:gap-2 sm:px-3 sm:text-xs"
                       >
                         {Icon ? (
                           <Icon
@@ -114,7 +114,7 @@ export default function Skills() {
                             aria-hidden="true"
                           />
                         ) : null}
-                        {skill}
+                        <span className="truncate">{skill}</span>
                       </li>
                     );
                   })}

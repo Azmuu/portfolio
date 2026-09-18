@@ -38,32 +38,41 @@ export default function Navbar() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   const handleNavClick = () => setOpen(false);
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? "border-b border-white/10 bg-navy-950/85 backdrop-blur-xl"
+          ? "border-b border-white/10 bg-navy-950/90 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
       <div className="container-shell section-pad">
-        <div className="flex h-16 items-center justify-between sm:h-20">
+        <div className="flex h-16 items-center justify-between gap-2 sm:h-20 sm:gap-3">
           <a
             href="#home"
-            className="group flex items-center gap-3"
+            className="group flex min-w-0 items-center gap-2 sm:gap-3"
             aria-label={`${profile.firstName} home`}
+            onClick={handleNavClick}
           >
-            <span className="flex h-12 w-14 shrink-0 items-center justify-center sm:h-14 sm:w-16">
+            <span className="flex h-10 w-11 shrink-0 items-center justify-center sm:h-12 sm:w-14">
               <img
                 src={assetUrl("/brand/asmo-icon.png")}
                 alt="ASMO"
-                className="h-10 w-auto object-contain sm:h-12"
+                className="h-8 w-auto max-w-full object-contain sm:h-10"
               />
             </span>
-            <span className="flex flex-col leading-tight">
-              <span className="font-display text-lg font-bold tracking-wide text-white">
+            <span className="flex min-w-0 flex-col leading-tight">
+              <span className="font-display text-base font-bold tracking-wide text-white sm:text-lg">
                 ASMA
               </span>
               <span className="hidden text-[10px] uppercase tracking-[0.18em] text-gray-400 sm:block">
@@ -72,7 +81,7 @@ export default function Navbar() {
             </span>
           </a>
 
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Primary">
             {navLinks.map((link) => {
               const id = link.href.replace("#", "");
               const isActive = active === id;
@@ -80,7 +89,7 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`relative rounded-full px-3 py-2 text-sm font-medium transition ${
+                  className={`relative rounded-full px-2.5 py-2 text-sm font-medium transition lg:px-3 ${
                     isActive ? "text-accent" : "text-gray-300 hover:text-white"
                   }`}
                 >
@@ -96,16 +105,16 @@ export default function Navbar() {
             })}
           </nav>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2.5">
             <ThemeToggle />
-            <a href="#contact" className="btn-primary hidden sm:inline-flex">
+            <a href="#contact" className="btn-primary hidden md:inline-flex">
               Let&apos;s Talk
               <ArrowRight size={16} aria-hidden="true" />
             </a>
 
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:border-accent/40 hover:text-accent lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:border-accent/40 hover:text-accent xl:hidden"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((prev) => !prev)}
@@ -117,8 +126,11 @@ export default function Navbar() {
       </div>
 
       {open ? (
-        <div className="border-t border-white/10 bg-navy-950/95 backdrop-blur-xl lg:hidden">
-          <nav className="container-shell section-pad flex flex-col gap-1 py-4" aria-label="Mobile">
+        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-white/10 bg-navy-950/97 backdrop-blur-xl xl:hidden">
+          <nav
+            className="container-shell section-pad flex flex-col gap-1 py-4 pb-8"
+            aria-label="Mobile"
+          >
             {navLinks.map((link) => {
               const id = link.href.replace("#", "");
               const isActive = active === id;
@@ -127,7 +139,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={handleNavClick}
-                  className={`rounded-xl px-4 py-3 text-base font-medium transition ${
+                  className={`rounded-xl px-4 py-3.5 text-base font-medium transition ${
                     isActive
                       ? "bg-accent/10 text-accent"
                       : "text-gray-300 hover:bg-white/5 hover:text-white"
@@ -137,7 +149,11 @@ export default function Navbar() {
                 </a>
               );
             })}
-            <a href="#contact" onClick={handleNavClick} className="btn-primary mt-3 w-full">
+            <a
+              href="#contact"
+              onClick={handleNavClick}
+              className="btn-primary mt-3 w-full"
+            >
               Let&apos;s Talk
               <ArrowRight size={16} aria-hidden="true" />
             </a>

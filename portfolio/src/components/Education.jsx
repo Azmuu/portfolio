@@ -7,7 +7,7 @@ export default function Education() {
   const { education } = profile;
 
   return (
-    <section id="education" className="relative py-20 sm:py-24">
+    <section id="education" className="relative section-y">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
       <div className="container-shell section-pad">
         <ScrollReveal>
@@ -19,19 +19,19 @@ export default function Education() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <article className="glass-strong relative overflow-hidden rounded-3xl p-6 sm:p-8 lg:p-10">
+          <article className="glass-strong relative overflow-hidden rounded-2xl p-5 sm:rounded-3xl sm:p-8 lg:p-10">
             <div className="pointer-events-none absolute -left-16 top-0 h-56 w-56 rounded-full bg-accent/15 blur-3xl" />
-            <div className="relative grid gap-8 lg:grid-cols-[auto_1fr_auto] lg:items-center">
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-accent text-white shadow-glow">
-                <GraduationCap size={30} aria-hidden="true" />
+            <div className="relative grid gap-6 sm:gap-8 lg:grid-cols-[auto_1fr_auto] lg:items-center">
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-white shadow-glow sm:h-16 sm:w-16">
+                <GraduationCap size={28} aria-hidden="true" />
               </div>
 
-              <div className="space-y-4">
+              <div className="min-w-0 space-y-4">
                 <div>
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-accent sm:text-xs sm:tracking-[0.25em]">
                     Bachelor Degree
                   </p>
-                  <h3 className="font-display text-2xl font-bold text-white sm:text-3xl">
+                  <h3 className="font-display text-xl font-bold leading-snug text-white sm:text-2xl lg:text-3xl">
                     {education.degree}
                   </h3>
                 </div>
@@ -39,17 +39,19 @@ export default function Education() {
                 <div className="grid gap-3 sm:grid-cols-2">
                   <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                     <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500">
-                      <Building2 size={14} className="text-accent" aria-hidden="true" />
+                      <Building2 size={14} className="shrink-0 text-accent" aria-hidden="true" />
                       University
                     </p>
-                    <p className="text-sm font-medium text-gray-100">{education.university}</p>
+                    <p className="break-words text-sm font-medium text-gray-100">
+                      {education.university}
+                    </p>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
                     <p className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wider text-gray-500">
-                      <BookOpen size={14} className="text-accent" aria-hidden="true" />
+                      <BookOpen size={14} className="shrink-0 text-accent" aria-hidden="true" />
                       Specialization
                     </p>
-                    <p className="text-sm font-medium text-gray-100">
+                    <p className="break-words text-sm font-medium text-gray-100">
                       {education.specialization}
                     </p>
                   </div>
@@ -64,7 +66,7 @@ export default function Education() {
                 href={education.universityUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary w-fit"
+                className="btn-secondary w-full sm:w-fit"
               >
                 University Website
                 <ExternalLink size={15} aria-hidden="true" />

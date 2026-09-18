@@ -40,46 +40,48 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-20 sm:py-24">
+    <section id="contact" className="relative section-y">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
       <div className="container-shell section-pad">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <ScrollReveal className="lg:col-span-5">
+        <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+          <ScrollReveal className="min-w-0 lg:col-span-5">
             <SectionHeading
               label="Get In Touch"
               title="Let's Build Something Amazing Together"
               description="Have a project in mind? Let's discuss how we can turn your ideas into a modern digital solution."
             />
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <a
                 href={`mailto:${profile.email}`}
-                className="glass flex items-center gap-4 rounded-2xl p-4 transition hover:border-accent/40"
+                className="glass flex items-center gap-3 rounded-2xl p-4 transition hover:border-accent/40 sm:gap-4"
               >
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
                   <Mail size={18} aria-hidden="true" />
                 </span>
-                <span>
+                <span className="min-w-0">
                   <span className="block text-xs uppercase tracking-wider text-gray-500">
                     Email
                   </span>
-                  <span className="text-sm font-medium text-white">{profile.email}</span>
+                  <span className="block break-all text-sm font-medium text-white">
+                    {profile.email}
+                  </span>
                 </span>
               </a>
 
-              <div className="glass flex items-center gap-4 rounded-2xl p-4">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
+              <div className="glass flex items-center gap-3 rounded-2xl p-4 sm:gap-4">
+                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
                   <MapPin size={18} aria-hidden="true" />
                 </span>
-                <span>
+                <span className="min-w-0">
                   <span className="block text-xs uppercase tracking-wider text-gray-500">
                     Location
                   </span>
-                  <span className="text-sm font-medium text-white">{profile.location}</span>
+                  <span className="block text-sm font-medium text-white">{profile.location}</span>
                 </span>
               </div>
 
-              <div className="flex gap-3 pt-2">
+              <div className="flex gap-3 pt-1 sm:pt-2">
                 <a
                   href={profile.github}
                   target="_blank"
@@ -109,10 +111,10 @@ export default function Contact() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.1} className="lg:col-span-7">
+          <ScrollReveal delay={0.1} className="min-w-0 lg:col-span-7">
             <form
               onSubmit={handleSubmit}
-              className="glass-strong rounded-3xl p-6 sm:p-8"
+              className="glass-strong rounded-2xl p-5 sm:rounded-3xl sm:p-8"
               noValidate
             >
               <div className="grid gap-5 sm:grid-cols-2">
@@ -129,6 +131,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Your name"
                     className="input-field"
+                    autoComplete="name"
                   />
                 </div>
                 <div className="space-y-2">
@@ -144,6 +147,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="you@example.com"
                     className="input-field"
+                    autoComplete="email"
                   />
                 </div>
               </div>
