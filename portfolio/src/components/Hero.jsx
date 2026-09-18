@@ -20,12 +20,12 @@ const iconMap = {
 };
 
 const badgePositions = [
-  "-left-10 top-[2%] animate-float",
-  "-right-10 top-0 animate-float-delayed",
-  "-left-12 top-[34%] animate-float-delayed",
-  "-right-12 top-[32%] animate-float",
-  "-left-10 bottom-[10%] animate-float",
-  "-right-10 bottom-[8%] animate-float-delayed",
+  "-left-8 top-[4%] animate-float",
+  "-right-8 top-[2%] animate-float-delayed",
+  "-left-10 top-[36%] animate-float-delayed",
+  "-right-10 top-[34%] animate-float",
+  "-left-8 bottom-[12%] animate-float",
+  "-right-8 bottom-[10%] animate-float-delayed",
 ];
 
 export default function Hero() {
@@ -110,62 +110,64 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-[200px] shrink-0 lg:mx-0 lg:ml-auto">
-          <div className="pointer-events-none absolute inset-3 rounded-full bg-radial-glow blur-xl opacity-70" />
+        <div className="relative mx-auto flex w-full max-w-md justify-center px-6 sm:px-10 lg:max-w-lg lg:px-12">
+          <div className="relative w-[240px] shrink-0 sm:w-[260px] md:w-[280px] lg:w-[300px]">
+            <div className="pointer-events-none absolute inset-4 rounded-full bg-radial-glow blur-2xl opacity-80" />
 
-          <div className="relative">
-            <div className="relative z-0 overflow-hidden rounded-2xl border border-white/15 bg-navy-900 shadow-glow-sm ring-1 ring-accent/25">
-              <div className="relative aspect-[3/4] w-full">
-                <img
-                  src={assetUrl("/profile/asma.png")}
-                  alt="Asma Abdirisak"
-                  className="absolute inset-0 h-full w-full object-cover object-center"
-                />
+            <div className="relative">
+              <div className="relative z-0 overflow-hidden rounded-2xl border border-white/15 bg-navy-900 shadow-card ring-1 ring-accent/25">
+                <div className="relative aspect-[3/4] w-full">
+                  <img
+                    src={assetUrl("/profile/asma.png")}
+                    alt="Asma Abdirisak"
+                    className="absolute inset-0 h-full w-full object-cover object-center"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="relative z-20 mt-3 text-center">
-              <p className="font-display text-sm font-semibold text-white">
-                Asma Abdirisak
-              </p>
-              <p className="mt-0.5 text-[11px] text-gray-400">Full-Stack Developer</p>
-            </div>
+              <div className="relative z-20 mt-4 text-center">
+                <p className="font-display text-base font-semibold text-white sm:text-lg">
+                  Asma Abdirisak
+                </p>
+                <p className="mt-1 text-xs text-gray-400 sm:text-sm">Full-Stack Developer</p>
+              </div>
 
-            {/* Mobile: compact tech chips */}
-            <div className="relative z-20 mt-3 flex flex-wrap justify-center gap-1.5 md:hidden">
-              {floatingTech.map((tech) => {
+              {/* Mobile: tech chips */}
+              <div className="relative z-20 mt-3 flex flex-wrap justify-center gap-1.5 lg:hidden">
+                {floatingTech.map((tech) => {
+                  const Icon = iconMap[tech.name];
+                  return (
+                    <span
+                      key={tech.name}
+                      className="glass-strong inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-medium text-white"
+                    >
+                      {Icon ? (
+                        <Icon style={{ color: tech.color }} className="h-3 w-3" aria-hidden="true" />
+                      ) : null}
+                      {tech.name}
+                    </span>
+                  );
+                })}
+              </div>
+
+              {/* Desktop: floating badges */}
+              {floatingTech.map((tech, index) => {
                 const Icon = iconMap[tech.name];
                 return (
-                  <span
+                  <div
                     key={tech.name}
-                    className="glass-strong inline-flex items-center gap-1 rounded-full px-2 py-1 text-[9px] font-medium text-white"
+                    className={`pointer-events-none absolute z-30 hidden lg:block ${badgePositions[index]}`}
                   >
-                    {Icon ? (
-                      <Icon style={{ color: tech.color }} className="h-2.5 w-2.5" aria-hidden="true" />
-                    ) : null}
-                    {tech.name}
-                  </span>
+                    <div className="glass-strong flex items-center gap-1.5 rounded-full px-2.5 py-1.5 shadow-glow-sm">
+                      {Icon ? (
+                        <Icon style={{ color: tech.color }} className="h-3.5 w-3.5" aria-hidden="true" />
+                      ) : null}
+                      <span className="text-[11px] font-medium text-white">{tech.name}</span>
+                    </div>
+                  </div>
                 );
               })}
             </div>
-
-            {/* Desktop: floating badges around card */}
-            {floatingTech.map((tech, index) => {
-              const Icon = iconMap[tech.name];
-              return (
-                <div
-                  key={tech.name}
-                  className={`pointer-events-none absolute z-30 hidden lg:block ${badgePositions[index]}`}
-                >
-                  <div className="glass-strong flex items-center gap-1.5 rounded-full px-2 py-1.5 shadow-glow-sm">
-                    {Icon ? (
-                      <Icon style={{ color: tech.color }} className="h-3 w-3" aria-hidden="true" />
-                    ) : null}
-                    <span className="text-[10px] font-medium text-white">{tech.name}</span>
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
       </div>
