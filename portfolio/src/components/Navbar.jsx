@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { navLinks, profile } from "../data/profile";
 import ThemeToggle from "./ThemeToggle";
+import { assetUrl } from "../utils/assetUrl";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -56,7 +57,7 @@ export default function Navbar() {
           >
             <span className="flex h-12 w-14 shrink-0 items-center justify-center sm:h-14 sm:w-16">
               <img
-                src="/brand/asmo-icon.png"
+                src={assetUrl("/brand/asmo-icon.png")}
                 alt="ASMO"
                 className="h-10 w-auto object-contain sm:h-12"
               />

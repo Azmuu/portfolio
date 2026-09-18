@@ -8,6 +8,7 @@ import {
   SiJavascript,
 } from "react-icons/si";
 import { floatingTech, profile } from "../data/profile";
+import { assetUrl } from "../utils/assetUrl";
 
 const iconMap = {
   "React.js": SiReact,
@@ -115,7 +116,7 @@ export default function Hero() {
             <div className="relative z-0 overflow-hidden rounded-[2rem] border border-white/10 bg-navy-900 shadow-card ring-1 ring-accent/25">
               <div className="relative aspect-[3/4]">
                 <img
-                  src="/profile/asma.png"
+                  src={assetUrl("/profile/asma.png")}
                   alt="Asma Abdirisak"
                   className="h-full w-full object-cover object-[center_18%]"
                 />

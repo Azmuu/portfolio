@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { navLinks, profile } from "../data/profile";
+import { assetUrl } from "../utils/assetUrl";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -12,7 +13,7 @@ export default function Footer() {
             <a href="#home" className="mb-4 inline-flex items-center gap-3">
               <span className="flex h-12 w-14 shrink-0 items-center justify-center sm:h-14 sm:w-16">
                 <img
-                  src="/brand/asmo-icon.png"
+                  src={assetUrl("/brand/asmo-icon.png")}
                   alt="ASMO"
                   className="h-10 w-auto object-contain sm:h-12"
                 />

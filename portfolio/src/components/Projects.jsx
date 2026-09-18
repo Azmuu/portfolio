@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowUpRight, ChevronLeft, ChevronRight, Github, LayoutTemplate } from "lucide-react";
 import { projects } from "../data/projects";
 import { profile } from "../data/profile";
+import { assetUrl } from "../utils/assetUrl";
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 
@@ -47,7 +48,7 @@ function ProjectMedia({ project }) {
   return (
     <div className="relative aspect-[16/11] overflow-hidden border-b border-white/10 bg-navy-950/80">
       <img
-        src={current.src}
+        src={assetUrl(current.src)}
         alt={current.alt}
         className="h-full w-full object-contain object-center p-1 transition duration-300"
       />
