@@ -119,7 +119,7 @@ export default function Hero() {
                 <img
                   src={`${assetUrl("/profile/asma.png")}?v=4`}
                   alt="Asma Abdirisak"
-                  className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
+                  className="absolute inset-0 h-full w-full origin-center scale-[1.35] object-cover object-[center_18%]"
                 />
               </div>
             </div>
