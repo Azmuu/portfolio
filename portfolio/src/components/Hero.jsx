@@ -1,4 +1,5 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 import {
   SiReact,
   SiNodedotjs,
@@ -7,7 +8,7 @@ import {
   SiFlutter,
   SiJavascript,
 } from "react-icons/si";
-import { floatingTech, profile } from "../data/profile";
+import { profile } from "../data/profile";
 import { assetUrl } from "../utils/assetUrl";
 
 const iconMap = {
@@ -19,14 +20,53 @@ const iconMap = {
   JavaScript: SiJavascript,
 };
 
-const badgePositions = [
-  "-left-2 top-[8%] animate-float",
-  "-right-2 top-[6%] animate-float-delayed",
-  "-left-4 top-[42%] animate-float-delayed",
-  "-right-4 top-[40%] animate-float",
-  "-left-2 bottom-[18%] animate-float",
-  "-right-2 bottom-[16%] animate-float-delayed",
+/** Flutter + JS animate into the top corners; others sit mid/bottom */
+const desktopBadges = [
+  {
+    name: "Flutter",
+    color: "#02569B",
+    className: "-left-2 top-[6%]",
+    initial: { opacity: 0, y: 70, x: -12 },
+    delay: 0.25,
+  },
+  {
+    name: "JavaScript",
+    color: "#F7DF1E",
+    className: "-right-2 top-[4%]",
+    initial: { opacity: 0, y: 70, x: 12 },
+    delay: 0.4,
+  },
+  {
+    name: "MongoDB",
+    color: "#4DB33D",
+    className: "-left-4 top-[40%]",
+    initial: { opacity: 0, x: -20 },
+    delay: 0.15,
+  },
+  {
+    name: "Python",
+    color: "#3776AB",
+    className: "-right-4 top-[38%]",
+    initial: { opacity: 0, x: 20 },
+    delay: 0.2,
+  },
+  {
+    name: "React.js",
+    color: "#61DAFB",
+    className: "-left-2 bottom-[14%]",
+    initial: { opacity: 0, y: 16 },
+    delay: 0.45,
+  },
+  {
+    name: "Node.js",
+    color: "#68A063",
+    className: "-right-2 bottom-[12%]",
+    initial: { opacity: 0, y: 16 },
+    delay: 0.55,
+  },
 ];
+
+const mobileChips = ["React.js", "Node.js", "MongoDB", "Python", "Flutter", "JavaScript"];
 
 export default function Hero() {
   return (
@@ -119,7 +159,7 @@ export default function Hero() {
                 <img
                   src={`${assetUrl("/profile/asma.png")}?v=6`}
                   alt="Asma Abdirisak"
-                  className="absolute inset-0 h-full w-full object-contain object-center"
+                  className="absolute inset-0 h-full w-full object-cover object-[center_8%]"
                 />
               </div>
             </div>
@@ -133,37 +173,45 @@ export default function Hero() {
 
             {/* Mobile: tech chips */}
             <div className="relative z-20 mt-3 flex flex-wrap justify-center gap-2 lg:hidden">
-              {floatingTech.map((tech) => {
-                const Icon = iconMap[tech.name];
+              {mobileChips.map((name) => {
+                const Icon = iconMap[name];
+                const color = desktopBadges.find((b) => b.name === name)?.color;
                 return (
                   <span
-                    key={tech.name}
+                    key={name}
                     className="glass-strong inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[10px] font-medium text-white"
                   >
                     {Icon ? (
-                      <Icon style={{ color: tech.color }} className="h-3 w-3" aria-hidden="true" />
+                      <Icon style={{ color }} className="h-3 w-3" aria-hidden="true" />
                     ) : null}
-                    {tech.name}
+                    {name}
                   </span>
                 );
               })}
             </div>
 
-            {/* Desktop: floating badges */}
-            {floatingTech.map((tech, index) => {
-              const Icon = iconMap[tech.name];
+            {/* Desktop: floating badges — Flutter & JS animate into top corners */}
+            {desktopBadges.map((badge) => {
+              const Icon = iconMap[badge.name];
               return (
-                <div
-                  key={tech.name}
-                  className={`pointer-events-none absolute z-30 hidden lg:block ${badgePositions[index]}`}
+                <motion.div
+                  key={badge.name}
+                  className={`pointer-events-none absolute z-30 hidden lg:block ${badge.className}`}
+                  initial={badge.initial}
+                  animate={{ opacity: 1, x: 0, y: 0 }}
+                  transition={{
+                    duration: 0.75,
+                    delay: badge.delay,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                 >
-                  <div className="glass-strong flex items-center gap-2 rounded-full px-3 py-2 shadow-glow-sm">
+                  <div className="glass-strong flex animate-float items-center gap-2 rounded-full px-3 py-2 shadow-glow-sm">
                     {Icon ? (
-                      <Icon style={{ color: tech.color }} className="h-4 w-4" aria-hidden="true" />
+                      <Icon style={{ color: badge.color }} className="h-4 w-4" aria-hidden="true" />
                     ) : null}
-                    <span className="text-xs font-medium text-white">{tech.name}</span>
+                    <span className="text-xs font-medium text-white">{badge.name}</span>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
