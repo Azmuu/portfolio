@@ -6,13 +6,10 @@ import { assetUrl } from "../utils/assetUrl";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("home");
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 24);
-
       const sections = navLinks.map((link) => link.href.replace("#", ""));
       let current = "home";
 
@@ -51,9 +48,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled || open
-          ? "border-b border-white/10 bg-navy-950/90 backdrop-blur-xl"
-          : "bg-transparent"
+        open ? "border-b border-white/10 bg-navy-950/95 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <div className="container-shell section-pad">
@@ -89,16 +84,10 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`relative rounded-full px-2.5 py-2 text-sm font-medium transition lg:px-3 ${
+                  className={`rounded-full px-2.5 py-2 text-sm font-medium transition lg:px-3 ${
                     isActive ? "text-accent" : "text-gray-300 hover:text-white"
                   }`}
                 >
-                  {isActive ? (
-                    <span
-                      className="absolute left-1/2 top-1 h-1 w-1 -translate-x-1/2 rounded-full bg-accent"
-                      aria-hidden="true"
-                    />
-                  ) : null}
                   {link.label}
                 </a>
               );

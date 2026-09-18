@@ -114,12 +114,12 @@ export default function Hero() {
           <div className="pointer-events-none absolute inset-6 rounded-full bg-radial-glow blur-2xl opacity-90" />
 
           <div className="relative px-8 sm:px-10 lg:px-12">
-            <div className="relative z-0 overflow-hidden rounded-2xl border border-white/15 bg-navy-900 shadow-card ring-1 ring-accent/25 sm:rounded-3xl">
+            <div className="relative z-0 overflow-hidden rounded-2xl border border-white/15 bg-white shadow-card ring-1 ring-accent/25 sm:rounded-3xl">
               <div className="relative aspect-[3/4] w-full">
                 <img
                   src={assetUrl("/profile/asma.png")}
                   alt="Asma Abdirisak"
-                  className="absolute inset-0 h-full w-full object-cover object-center"
+                  className="absolute inset-0 h-full w-full object-cover object-top"
                 />
               </div>
             </div>
