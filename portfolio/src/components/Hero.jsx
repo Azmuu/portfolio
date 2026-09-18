@@ -110,38 +110,38 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[320px] justify-self-center sm:max-w-[360px] md:max-w-[400px] lg:max-w-[420px] lg:justify-self-start xl:max-w-[440px]">
-          <div className="pointer-events-none absolute inset-6 rounded-full bg-radial-glow blur-2xl opacity-90" />
+        <div className="relative mx-auto w-[200px] shrink-0 justify-self-center sm:w-[220px] md:w-[240px] lg:w-[250px] lg:justify-self-center">
+          <div className="pointer-events-none absolute inset-4 rounded-full bg-radial-glow blur-2xl opacity-80" />
 
-          <div className="relative px-8 sm:px-10 lg:px-12">
-            <div className="relative z-0 overflow-hidden rounded-2xl border border-black/5 bg-white shadow-card ring-1 ring-accent/20 sm:rounded-3xl">
+          <div className="relative px-6 sm:px-8">
+            <div className="relative z-0 overflow-hidden rounded-2xl border border-black/5 bg-white shadow-card ring-1 ring-accent/20">
               <div className="relative aspect-[3/4] w-full bg-white">
                 <img
-                  src={assetUrl("/profile/asma.png")}
+                  src={`${assetUrl("/profile/asma.png")}?v=4`}
                   alt="Asma Abdirisak"
-                  className="absolute inset-0 h-full w-full bg-white object-contain object-center"
+                  className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
                 />
               </div>
             </div>
 
-            <div className="relative z-20 mt-4 text-center sm:mt-5">
-              <p className="font-display text-lg font-semibold text-white sm:text-xl">
+            <div className="relative z-20 mt-3 text-center">
+              <p className="font-display text-sm font-semibold text-white sm:text-base">
                 Asma Abdirisak
               </p>
-              <p className="mt-1 text-xs text-gray-400 sm:text-sm">Full-Stack Developer</p>
+              <p className="mt-0.5 text-[11px] text-gray-400">Full-Stack Developer</p>
             </div>
 
             {/* Mobile: tech chips */}
-            <div className="relative z-20 mt-3 flex flex-wrap justify-center gap-2 lg:hidden">
+            <div className="relative z-20 mt-3 flex flex-wrap justify-center gap-1.5 lg:hidden">
               {floatingTech.map((tech) => {
                 const Icon = iconMap[tech.name];
                 return (
                   <span
                     key={tech.name}
-                    className="glass-strong inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[10px] font-medium text-white"
+                    className="glass-strong inline-flex items-center gap-1 rounded-full px-2 py-1 text-[9px] font-medium text-white"
                   >
                     {Icon ? (
-                      <Icon style={{ color: tech.color }} className="h-3 w-3" aria-hidden="true" />
+                      <Icon style={{ color: tech.color }} className="h-2.5 w-2.5" aria-hidden="true" />
                     ) : null}
                     {tech.name}
                   </span>
@@ -157,11 +157,11 @@ export default function Hero() {
                   key={tech.name}
                   className={`pointer-events-none absolute z-30 hidden lg:block ${badgePositions[index]}`}
                 >
-                  <div className="glass-strong flex items-center gap-2 rounded-full px-3 py-2 shadow-glow-sm">
+                  <div className="glass-strong flex items-center gap-1.5 rounded-full px-2.5 py-1.5 shadow-glow-sm">
                     {Icon ? (
-                      <Icon style={{ color: tech.color }} className="h-4 w-4" aria-hidden="true" />
+                      <Icon style={{ color: tech.color }} className="h-3.5 w-3.5" aria-hidden="true" />
                     ) : null}
-                    <span className="text-xs font-medium text-white">{tech.name}</span>
+                    <span className="text-[11px] font-medium text-white">{tech.name}</span>
                   </div>
                 </div>
               );
