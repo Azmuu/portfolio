@@ -117,7 +117,7 @@ export default function Hero() {
             <div className="relative z-0 overflow-hidden rounded-2xl border border-black/5 bg-white shadow-card ring-1 ring-accent/20 sm:rounded-3xl">
               <div className="relative aspect-[3/4] w-full bg-white">
                 <img
-                  src={`${assetUrl("/profile/asma.png")}?v=5`}
+                  src={`${assetUrl("/profile/asma.png")}?v=6`}
                   alt="Asma Abdirisak"
                   className="absolute inset-0 h-full w-full object-contain object-center"
                 />
