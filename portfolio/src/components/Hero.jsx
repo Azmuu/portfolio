@@ -110,16 +110,16 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[360px] justify-self-center sm:max-w-[420px] md:max-w-[460px] lg:max-w-[500px] lg:-translate-x-12 lg:justify-self-start xl:max-w-[520px] xl:-translate-x-16">
+        <div className="relative mx-auto w-full max-w-[360px] justify-self-center sm:max-w-[420px] md:max-w-[460px] lg:max-w-[500px] lg:-translate-x-6 lg:justify-self-start xl:max-w-[520px] xl:-translate-x-10">
           <div className="pointer-events-none absolute inset-8 rounded-full bg-radial-glow blur-2xl opacity-90" />
 
           <div className="relative px-12 sm:px-14 lg:px-16">
             <div className="relative z-0 overflow-hidden rounded-2xl border border-black/5 bg-white shadow-card ring-1 ring-accent/20 sm:rounded-3xl">
-              <div className="relative aspect-[3/4] w-full bg-white p-3 sm:p-4">
+              <div className="relative aspect-[3/4] w-full bg-white">
                 <img
                   src={`${assetUrl("/profile/asma.png")}?v=5`}
                   alt="Asma Abdirisak"
-                  className="h-full w-full object-contain object-center"
+                  className="absolute inset-0 h-full w-full object-contain object-center"
                 />
               </div>
             </div>
