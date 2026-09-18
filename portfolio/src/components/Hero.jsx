@@ -20,12 +20,12 @@ const iconMap = {
 };
 
 const badgePositions = [
-  "left-0 top-[6%] animate-float",
-  "right-0 top-[4%] animate-float-delayed",
-  "left-0 top-[38%] animate-float-delayed",
-  "right-0 top-[36%] animate-float",
-  "left-1 bottom-[16%] animate-float",
-  "right-1 bottom-[14%] animate-float-delayed",
+  "-left-2 top-[8%] animate-float",
+  "-right-2 top-[6%] animate-float-delayed",
+  "-left-4 top-[42%] animate-float-delayed",
+  "-right-4 top-[40%] animate-float",
+  "-left-2 bottom-[18%] animate-float",
+  "-right-2 bottom-[16%] animate-float-delayed",
 ];
 
 export default function Hero() {
@@ -38,7 +38,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute -left-24 top-20 h-72 w-72 rounded-full bg-accent/20 blur-[120px]" />
       <div className="pointer-events-none absolute right-0 top-40 h-80 w-80 rounded-full bg-blue-500/10 blur-[130px]" />
 
-      <div className="container-shell section-pad relative grid items-center gap-10 lg:grid-cols-2 lg:gap-6 xl:gap-8">
+      <div className="container-shell section-pad relative grid items-center gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-4 xl:gap-6">
         <div className="min-w-0 space-y-5 sm:space-y-7">
           <div className="flex items-center gap-3">
             <span className="h-px w-8 shrink-0 bg-accent sm:w-10" aria-hidden="true" />
@@ -110,16 +110,16 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-[320px] shrink-0 justify-self-center sm:w-[360px] md:w-[400px] lg:mr-auto lg:w-[420px] lg:justify-self-start xl:w-[440px] xl:pl-4">
-          <div className="pointer-events-none absolute inset-6 rounded-full bg-radial-glow blur-2xl opacity-90" />
+        <div className="relative mx-auto w-full max-w-[360px] justify-self-center sm:max-w-[420px] md:max-w-[460px] lg:max-w-[500px] lg:-translate-x-6 lg:justify-self-start xl:max-w-[520px] xl:-translate-x-10">
+          <div className="pointer-events-none absolute inset-8 rounded-full bg-radial-glow blur-2xl opacity-90" />
 
-          <div className="relative px-10 sm:px-12 lg:px-14">
+          <div className="relative px-12 sm:px-14 lg:px-16">
             <div className="relative z-0 overflow-hidden rounded-2xl border border-black/5 bg-white shadow-card ring-1 ring-accent/20 sm:rounded-3xl">
               <div className="relative aspect-[3/4] w-full bg-white">
                 <img
-                  src={`${assetUrl("/profile/asma.png")}?v=4`}
+                  src={`${assetUrl("/profile/asma.png")}?v=5`}
                   alt="Asma Abdirisak"
-                  className="absolute inset-0 h-full w-full origin-center scale-[1.12] object-cover object-[center_22%]"
+                  className="absolute inset-0 h-full w-full object-contain object-center"
                 />
               </div>
             </div>
