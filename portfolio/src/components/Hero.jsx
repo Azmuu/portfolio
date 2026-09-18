@@ -20,12 +20,12 @@ const iconMap = {
 };
 
 const badgePositions = [
-  "-left-3 top-[4%] animate-float",
-  "-right-3 top-[2%] animate-float-delayed",
-  "-left-5 top-[36%] animate-float-delayed",
-  "-right-5 top-[34%] animate-float",
-  "-left-4 bottom-[14%] animate-float",
-  "-right-4 bottom-[12%] animate-float-delayed",
+  "-left-10 top-[2%] animate-float",
+  "-right-10 top-0 animate-float-delayed",
+  "-left-12 top-[34%] animate-float-delayed",
+  "-right-12 top-[32%] animate-float",
+  "-left-10 bottom-[10%] animate-float",
+  "-right-10 bottom-[8%] animate-float-delayed",
 ];
 
 export default function Hero() {
@@ -110,11 +110,11 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[148px] xs:max-w-[160px] sm:max-w-[176px] md:max-w-[200px] lg:mx-0 lg:ml-auto lg:max-w-[220px]">
-          <div className="pointer-events-none absolute inset-4 rounded-full bg-radial-glow blur-xl opacity-80" />
+        <div className="relative mx-auto w-[120px] shrink-0 xs:w-[130px] sm:w-[140px] md:w-[150px] lg:mx-0 lg:ml-auto lg:w-[160px]">
+          <div className="pointer-events-none absolute inset-2 rounded-full bg-radial-glow blur-lg opacity-70" />
 
-          <div className="relative px-1 pb-2 pt-1 md:px-5 md:pb-4 md:pt-2">
-            <div className="relative z-0 overflow-hidden rounded-xl border border-white/10 bg-navy-900 shadow-glow-sm ring-1 ring-accent/20 sm:rounded-2xl">
+          <div className="relative">
+            <div className="relative z-0 overflow-hidden rounded-xl border border-white/15 bg-navy-900 shadow-glow-sm ring-1 ring-accent/25">
               <div className="relative aspect-[3/4] w-full">
                 <img
                   src={assetUrl("/profile/asma.png")}
@@ -124,24 +124,24 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="relative z-20 mt-3 text-center">
-              <p className="font-display text-sm font-semibold text-white sm:text-base">
+            <div className="relative z-20 mt-2.5 text-center">
+              <p className="font-display text-xs font-semibold text-white sm:text-sm">
                 Asma Abdirisak
               </p>
-              <p className="mt-0.5 text-[11px] text-gray-400 sm:text-xs">Full-Stack Developer</p>
+              <p className="mt-0.5 text-[10px] text-gray-400">Full-Stack Developer</p>
             </div>
 
-            {/* Mobile / small tablet: tech chips below photo (no overflow) */}
-            <div className="relative z-20 mt-3 flex flex-wrap justify-center gap-1.5 md:hidden">
+            {/* Mobile: compact tech chips */}
+            <div className="relative z-20 mt-2.5 flex flex-wrap justify-center gap-1 md:hidden">
               {floatingTech.map((tech) => {
                 const Icon = iconMap[tech.name];
                 return (
                   <span
                     key={tech.name}
-                    className="glass-strong inline-flex items-center gap-1 rounded-full px-2 py-1 text-[9px] font-medium text-white"
+                    className="glass-strong inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[8px] font-medium text-white"
                   >
                     {Icon ? (
-                      <Icon style={{ color: tech.color }} className="h-2.5 w-2.5" aria-hidden="true" />
+                      <Icon style={{ color: tech.color }} className="h-2 w-2" aria-hidden="true" />
                     ) : null}
                     {tech.name}
                   </span>
@@ -149,19 +149,19 @@ export default function Hero() {
               })}
             </div>
 
-            {/* Desktop: floating badges */}
+            {/* Desktop: floating badges around compact card */}
             {floatingTech.map((tech, index) => {
               const Icon = iconMap[tech.name];
               return (
                 <div
                   key={tech.name}
-                  className={`pointer-events-none absolute z-30 hidden md:block ${badgePositions[index]}`}
+                  className={`pointer-events-none absolute z-30 hidden lg:block ${badgePositions[index]}`}
                 >
-                  <div className="glass-strong flex items-center gap-1.5 rounded-full px-2 py-1.5 shadow-glow-sm">
+                  <div className="glass-strong flex items-center gap-1 rounded-full px-1.5 py-1 shadow-glow-sm">
                     {Icon ? (
-                      <Icon style={{ color: tech.color }} className="h-3 w-3" aria-hidden="true" />
+                      <Icon style={{ color: tech.color }} className="h-2.5 w-2.5" aria-hidden="true" />
                     ) : null}
-                    <span className="text-[10px] font-medium text-white">{tech.name}</span>
+                    <span className="text-[9px] font-medium text-white">{tech.name}</span>
                   </div>
                 </div>
               );
