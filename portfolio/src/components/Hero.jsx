@@ -110,10 +110,10 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-[280px] shrink-0 justify-self-center sm:w-[300px] md:w-[320px] lg:w-[340px] lg:justify-self-center">
-          <div className="pointer-events-none absolute inset-4 rounded-full bg-radial-glow blur-2xl opacity-80" />
+        <div className="relative mx-auto w-[320px] shrink-0 justify-self-center sm:w-[360px] md:w-[400px] lg:w-[420px] xl:w-[440px] lg:justify-self-center">
+          <div className="pointer-events-none absolute inset-6 rounded-full bg-radial-glow blur-2xl opacity-90" />
 
-          <div className="relative px-8 sm:px-10 lg:px-12">
+          <div className="relative px-10 sm:px-12 lg:px-14">
             <div className="relative z-0 overflow-hidden rounded-2xl border border-black/5 bg-white shadow-card ring-1 ring-accent/20 sm:rounded-3xl">
               <div className="relative aspect-[3/4] w-full bg-white">
                 <img
@@ -124,8 +124,8 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="relative z-20 mt-4 text-center">
-              <p className="font-display text-base font-semibold text-white sm:text-lg">
+            <div className="relative z-20 mt-4 text-center sm:mt-5">
+              <p className="font-display text-lg font-semibold text-white sm:text-xl md:text-2xl">
                 Asma Abdirisak
               </p>
               <p className="mt-1 text-xs text-gray-400 sm:text-sm">Full-Stack Developer</p>
