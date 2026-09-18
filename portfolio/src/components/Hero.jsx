@@ -110,11 +110,11 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-[120px] shrink-0 xs:w-[130px] sm:w-[140px] md:w-[150px] lg:mx-0 lg:ml-auto lg:w-[160px]">
-          <div className="pointer-events-none absolute inset-2 rounded-full bg-radial-glow blur-lg opacity-70" />
+        <div className="relative mx-auto w-[200px] shrink-0 lg:mx-0 lg:ml-auto">
+          <div className="pointer-events-none absolute inset-3 rounded-full bg-radial-glow blur-xl opacity-70" />
 
           <div className="relative">
-            <div className="relative z-0 overflow-hidden rounded-xl border border-white/15 bg-navy-900 shadow-glow-sm ring-1 ring-accent/25">
+            <div className="relative z-0 overflow-hidden rounded-2xl border border-white/15 bg-navy-900 shadow-glow-sm ring-1 ring-accent/25">
               <div className="relative aspect-[3/4] w-full">
                 <img
                   src={assetUrl("/profile/asma.png")}
@@ -124,24 +124,24 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="relative z-20 mt-2.5 text-center">
-              <p className="font-display text-xs font-semibold text-white sm:text-sm">
+            <div className="relative z-20 mt-3 text-center">
+              <p className="font-display text-sm font-semibold text-white">
                 Asma Abdirisak
               </p>
-              <p className="mt-0.5 text-[10px] text-gray-400">Full-Stack Developer</p>
+              <p className="mt-0.5 text-[11px] text-gray-400">Full-Stack Developer</p>
             </div>
 
             {/* Mobile: compact tech chips */}
-            <div className="relative z-20 mt-2.5 flex flex-wrap justify-center gap-1 md:hidden">
+            <div className="relative z-20 mt-3 flex flex-wrap justify-center gap-1.5 md:hidden">
               {floatingTech.map((tech) => {
                 const Icon = iconMap[tech.name];
                 return (
                   <span
                     key={tech.name}
-                    className="glass-strong inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[8px] font-medium text-white"
+                    className="glass-strong inline-flex items-center gap-1 rounded-full px-2 py-1 text-[9px] font-medium text-white"
                   >
                     {Icon ? (
-                      <Icon style={{ color: tech.color }} className="h-2 w-2" aria-hidden="true" />
+                      <Icon style={{ color: tech.color }} className="h-2.5 w-2.5" aria-hidden="true" />
                     ) : null}
                     {tech.name}
                   </span>
@@ -149,7 +149,7 @@ export default function Hero() {
               })}
             </div>
 
-            {/* Desktop: floating badges around compact card */}
+            {/* Desktop: floating badges around card */}
             {floatingTech.map((tech, index) => {
               const Icon = iconMap[tech.name];
               return (
@@ -157,11 +157,11 @@ export default function Hero() {
                   key={tech.name}
                   className={`pointer-events-none absolute z-30 hidden lg:block ${badgePositions[index]}`}
                 >
-                  <div className="glass-strong flex items-center gap-1 rounded-full px-1.5 py-1 shadow-glow-sm">
+                  <div className="glass-strong flex items-center gap-1.5 rounded-full px-2 py-1.5 shadow-glow-sm">
                     {Icon ? (
-                      <Icon style={{ color: tech.color }} className="h-2.5 w-2.5" aria-hidden="true" />
+                      <Icon style={{ color: tech.color }} className="h-3 w-3" aria-hidden="true" />
                     ) : null}
-                    <span className="text-[9px] font-medium text-white">{tech.name}</span>
+                    <span className="text-[10px] font-medium text-white">{tech.name}</span>
                   </div>
                 </div>
               );
